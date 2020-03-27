@@ -4,4 +4,11 @@ the necessary files such as `ILuaModuleManager.h`.
 
 ## Requirements
 - CMake
-- Lua (with developer libraries aswell)
+- Lua 5.1 **development libraries**
+
+## Setup
+
+Define the CMake environment variable `LUA_DIR`, which should point to the directory Lua is installed in.
+In CLion, you may define this variable in `File > Settings > Build, Execution, Deployment > CMake`.
+
+Note that in some cases, CMake might be able to automatically locate Lua for you, so the step above may be unnecessary.
