@@ -1,6 +1,6 @@
 /*********************************************************
  *
- *  Multi Theft Auto: San Andreas - Deathmatch
+ *  Multi Theft Auto: San Andreas
  *
  *  ml_base, External lua add-on module
  *
@@ -19,8 +19,9 @@
 #include <mta/ILuaModuleManager.h>
 #include <cstring>
 #include "ml_base.h"
+#include "MTAModule.h"
 
-ILuaModuleManager10* pModuleManager = NULL;
+ILuaModuleManager10* pModuleManager = nullptr;
 
 MTAEXPORT bool InitModule(ILuaModuleManager10* pManager, char* szModuleName, char* szAuthor, float* fVersion)
 {
@@ -33,21 +34,13 @@ MTAEXPORT bool InitModule(ILuaModuleManager10* pManager, char* szModuleName, cha
     return true;
 }
 
-//static int test(lua_State *vm) {
-//    if (!vm) {
-//        return 1;
-//    }
-//
-//    lua_pushstring(vm, "Hello, world!");
-//    return 1;
-//}
-
 MTAEXPORT void RegisterFunctions(lua_State* luaVM)
 {
-//    if (pModuleManager && luaVM)
-//    {
-//        pModuleManager->RegisterFunction(luaVM, "helloWorld", test);
-//    }
+    if (!pModuleManager || !luaVM) {
+        return;
+    }
+
+    pModuleManager->RegisterFunction(luaVM, "helloWorld", MTAModule::helloWorld);
 }
 
 MTAEXPORT bool DoPulse(void)
@@ -57,6 +50,8 @@ MTAEXPORT bool DoPulse(void)
 
 MTAEXPORT bool ShutdownModule(void)
 {
+    MTAModule::shutdown();
+
     return true;
 }
 

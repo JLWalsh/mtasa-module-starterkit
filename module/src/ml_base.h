@@ -16,8 +16,8 @@
  *
  *********************************************************/
 
-/** MODULE SPECIFIC INFORMATION - Change this to fit your module **/
-#define MODULE_NAME         "Boilerplate Module"
+// Module-specific information, change this information
+#define MODULE_NAME         "Base Module"
 #define MODULE_AUTHOR       "JLWalsh"
 #define MODULE_VERSION      1.0
 
