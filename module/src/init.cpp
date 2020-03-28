@@ -18,7 +18,7 @@
 
 #include <mta/ILuaModuleManager.h>
 #include <cstring>
-#include "ml_base.h"
+#include "init.h"
 #include "MTAModule.h"
 
 ILuaModuleManager10* pModuleManager = nullptr;
